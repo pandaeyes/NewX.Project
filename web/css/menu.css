@@ -1,0 +1,61 @@
+.navibody {
+	scrollbar-face-color: #DEE3E7;
+	scrollbar-highlight-color: #D1D7DC;
+	scrollbar-shadow-color: #98AAB1;
+	scrollbar-3dlight-color: #ffffff;
+	scrollbar-arrow-color: #006699;
+	scrollbar-track-color: #EFEFEF;
+	scrollbar-darkshadow-color: #EFEFEF;
+	margin-left:0px;
+	margin-top:0px;
+	margin-right:0px;
+	margin-bottom:0px;
+	overflow-x:auto;
+	overflow-y:auto;
+	font-size:12px;
+	font-family:宋体;
+	text-align: center;
+	background-image:url("/newx/images/navi_bg_0.jpg");
+	background-repeat: no-repeat;
+	background-position: center bottom; 
+	height:100%;
+}
+td{	font-size:12px;
+	font-family:宋体;}
+.left1{	
+/*	BEHAVIOR: url(/newx/htc/WaitFor.htc); */
+	font-size:12px;
+	font-family:宋体;color:#2E0390}
+A.left1:link {
+	COLOR: #000000; FONT-SIZE: 9pt; 
+}
+td.lefticon {
+	TEXT-ALIGN: center;
+	background-image: url("/newx/images/b//b_menu023.gif"); height:28px;WIDTH: 20px;
+	background-repeat: no-repeat;
+	background-position: center center; 
+}
+
+A.left1:hover {
+	COLOR: #aaaaaa; FONT-SIZE: 9pt; 
+}
+a {text-decoration:none}
+.memufont {
+ font-size:13px;
+}
+.menubutton {
+cursor: hand;
+
+height:22; COLOR: #000000;
+background-image: url('/newx/images/navi_bg_up.gif');
+background-repeat: no-repeat;
+background-position: center center;
+}
+.menubutton1 {
+cursor: hand;
+
+height:22; COLOR: #000000;
+background-image: url('/newx/images/navi_bg_down.gif');
+background-repeat: no-repeat;
+background-position: center center;
+}

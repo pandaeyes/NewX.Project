@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jee="http://www.springframework.org/schema/jee" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+	http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.5.xsd
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd"
+	default-autowire="byName">
+
+	<context:annotation-config />
+	<aop:aspectj-autoproxy proxy-target-class="true" />
+	<tx:annotation-driven />
+	<context:property-placeholder location="/WEB-INF/application.properties" />
+	<context:component-scan base-package="newx" />
+
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close" p:driverClassName="${jdbc.driverClassName}"
+		p:url="${jdbc.url}" p:username="${jdbc.username}" p:password="${jdbc.password}"
+		p:validationQuery="${jdbc.validation.query}" p:initialSize="${jdbc.dataSource.initialSize}"
+		p:maxWait="${jdbc.dataSource.maxWait}" p:maxIdle="${jdbc.dataSource.maxIdle}"
+		p:minIdle="${jdbc.dataSource.minIdle}" p:maxActive="${jdbc.dataSource.maxActive}" />
+
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
+		p:dataSource-ref="dataSource" />
+		
+	<bean id="StrutsConfigService" class="newx.framework.StrutsConfigService" factory-method="getInstance">
+		<property name="projectList">
+			<list>
+				<bean class="newx.project.NewXProject">
+					<property name="id" value="Common"></property>
+					<property name="name" value="公共系统"></property>
+				</bean>
+				<bean class="newx.project.NewXProject">
+					<property name="id" value="Demo"></property>
+					<property name="name" value="测试"></property>
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="FrameworkService" class="newx.framework.FrameworkService" factory-method="getInstance"></bean>
+	<bean id="MenuService" class="newx.mod.menu.MenuService" factory-method="getInstance"></bean>
+	<bean id="TagService" class="newx.taglib.base.TagService" factory-method="getInstance"></bean>
+	<bean id="Framework" class="newx.framework.Framework" init-method="activate" factory-method="getInstance">
+		<property name="serviceList">
+			<list>
+				<ref bean="FrameworkService" />
+				<ref bean="MenuService" />
+				<ref bean="TagService" />
+			</list>
+		</property>
+	</bean>
+</beans>

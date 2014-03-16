@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>Bootstrap 101 Template</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<script type="text/javascript" src="../js/jquery-2.0.3.js"></script>
+<script type="text/javascript" src="test.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $("button").click(function(){
+        // alert($("#div1").css("color"));
+        // $("#div1").css({"color":"red", "font-size":"xx-large"});
+        // alert($(this).width());
+        // alert($(this).innerWidth());
+        // alert($(this).outerWidth());
+        // alert($(window).outerWidth());
+        $("#div1").width(500).height(500);
+    });
+
+});
+</script>
+<style type="text/css">
+.important
+{
+font-weight:bold;
+font-size:xx-large;
+}
+.blue
+{
+color:blue;
+}
+</style>
+</head>
+<body>
+<div id="div1" class = "blue">这是一些文本1。</div>
+<div id="div2">这是一些文本2。</div>
+<br>
+<button>向第一个 div 元素添加类</button>
+</body>
+
+</html> 

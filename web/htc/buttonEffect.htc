@@ -1,0 +1,58 @@
+/**
+ * 按钮控制组件，目的在于当用户单击按钮过后，立即进入loading页面，使用户不能重复点击按钮,
+ * 从而引起重复提交表单等错误
+ * htc  组件：buttonEfect.htc
+ * 应用 例子: 
+ */
+<PUBLIC:COMPONENT>
+<PUBLIC:PROPERTY NAME="effect" put="setEffect" get="getEffect" />
+<PUBLIC:ATTACH EVENT="onclick" ONEVENT="enCEffect()" />
+<PUBLIC:ATTACH EVENT="onkeypress" ONEVENT="enKEffect()" />
+<SCRIPT language="JScript">
+var bEffect = '';//效果开关临时变量
+
+/**单击按钮时启动按钮效果*/
+function enCEffect(){
+   if(getEffect()=='on' || getEffect()=='ON'){
+      createEff();
+   }
+}
+
+/**当按钮获取焦点时，按回车键启动按钮效果*/
+function enKEffect(){
+   if(getEffect()=='on' || getEffect()=='ON'){
+      var keycode;
+  	  keycode=window.event.keyCode;
+  	  if (keycode==0xD){//回车
+	     createEff();
+	  }
+   }
+}
+
+/**生成点击按钮后的效果页面*/
+function createEff(){
+     if(document.getElementById("LoadIframe")){
+	    return;
+	 }   
+   	 var iframeObj = window.document.createElement("<IFRAME id='LoadIframe' frameBorder=0 scrolling='no'></IFRAME>");
+	 window.document.body.insertBefore(iframeObj);
+	 iframeObj.src = "../jsp/common/loading.htm";
+}
+/**
+ * 设置按钮类型
+ * swatch:效果开关，只有on,off两个值
+ *
+ */
+function setEffect(swatch)
+{
+    bEffect = swatch;
+}
+
+/**得到效果开关变量值*/
+function getEffect()
+{
+	return bEffect;
+}
+
+</SCRIPT>
+</PUBLIC:COMPONENT>

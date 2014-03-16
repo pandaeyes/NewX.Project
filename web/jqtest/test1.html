@@ -1,0 +1,57 @@
+<html>
+<head>
+<title>Bootstrap 101 Template</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<script type="text/javascript" src="../js/jquery-2.0.3.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $("input").click(function(){
+        var val = $(this);
+        val.attr("value", "setAttr");
+        // var atte2 = $(this).attr("atte2");
+        // alert(val + "<>" + atte2);
+    });
+
+    $("p").click(function(){
+        // $(this).hide(1000, function() {
+        //     alert("The paragraph is now hidden");
+        // });
+        // var txt = $(this).text();
+        // alert("txt:" + txt + "\r\nHTML:" + $(this).html() + "\r\nval:" + $(this).val());
+        //var ts = $(this);
+        // ts.html("aaaaaa");
+        // ts.text("<b>aaaaaa</b>");
+        // $("p").css("background-color","red");
+        // $("p").before("Some appended text.");
+        $("p").remove();
+    });
+
+    $("div").click(function(){
+        $("p").css("color","red").slideUp(2000).slideDown(2000);
+        // $("p:hidden").show();
+        // $("p").toggle();
+        // $("div").animate({left:'250px'});
+        // $("p").slideToggle();
+        // var f = false;
+        // $("p").toggle(1000, function() {
+        //     if (f == false) {
+        //         alert("finish");
+        //         f = true;
+        //     }
+        // });
+    });
+});
+</script>
+</head>
+
+<body>
+<div>me</div>
+<p value = "line 1">If you click on me, I will disappear1.</p>
+<p>If you click on me, I will disappear2.</p>
+<p class="aa dd cc dd">If you click on me, I will disappear3.</p>
+<p>If you click on me, I will disappear4.</p>
+<P>If you click on me, I will disappear5.</p>
+<p>If you click on me, I will disappear6.</p>
+<input type="text" id="test" value="米老鼠" atte2 = "fdfsd">
+</body>
+</html> 
